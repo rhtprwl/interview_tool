@@ -4,7 +4,9 @@ InterviewTool::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'static_page#home'
+  resources :session, only: [:new, :create, :destroy]
+  match '/signin',  to: 'session#new',         via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
