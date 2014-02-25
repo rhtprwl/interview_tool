@@ -1,17 +1,10 @@
-<h1>Sample App</h1>
-<p>
-  This is the home page 
-</p>
+<div class="img-circle">
+	<%#= render 'layouts/header',id: "logo"%>
+</div>
+<div align="center">
 
- <% if signed_in? && current_user.role=='sadmin' %>
-      <%= logger.debug current_user.role%>
-      <h1>Welcome super admin</h1>
- <% elsif signed_in? && current_user.role=='admin'%>
-      <h1>Welcome Admin</h1>
- <% elsif  signed_in? && current_user.role=='user'%>
-      <h1>Welcome User</h1>
-      <%= logger.debug @current_user%>
-  <%else%>
-      <%= link_to "Sign In", signin_path %>
- <%end%> 
- <%= link_to "Sign Out", signin_path %>
+<h1>Interview Tools</h1>
+    <div class="">
+    	<%= link_to "Sign in", signin_path, :class => 'btn btn-success btn-lg' %>
+    </div>
+</div>   
