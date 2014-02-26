@@ -1,6 +1,24 @@
 <% provide(:title, "Sign in") %>
-
 <h1 align="center">Sign in</h1>
-<div>
-	<%= render 'static_page/fields' %>
+<br/>
+<div class="row">
+  <div class="span6 offset3">
+  	<center>
+    <%= form_for(:session, url: session_index_path) do |f| %>
+
+      <%= f.label :Username %>
+      <%= f.text_field :name %><br/>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %></br>
+
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
+    </center>
+	</div>
+ </div>
+ <div align="center">
+ <% flash.each do |name, message| %>
+        <%= content_tag :div, message, id: "error_explanation_#{name}"  %>
+ <% end %>
 </div>

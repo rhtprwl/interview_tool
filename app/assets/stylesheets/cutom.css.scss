@@ -40,7 +40,7 @@ textarea {
   }
   } 
 
-/* form
+/* form */
   input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -65,4 +65,4 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
-}*/
+}

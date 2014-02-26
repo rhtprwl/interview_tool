@@ -1,8 +1,12 @@
 InterviewTool::Application.routes.draw do
- get "static_page/home"
+  get "admin/show"
+ #get "static_page/home"
  resources :session, only: [:new, :create, :destroy]
+ resources :users
+ #match '/signup',  to: 'users#new',            via: 'get'
  match '/signin',  to: 'session#new',         via: 'get'
- match '/signup',  to: 'user#new',            via: 'get'
+ match '/signup',  to: 'users#new',            via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
