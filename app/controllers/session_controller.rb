@@ -5,7 +5,7 @@ class SessionController < ApplicationController
 	def create
 		user = User.find_by(name: params[:session][:name].downcase)
 		      #logger.debug user.name
-          if user#= && user.authenticate(params[:session][:password])
+          if user  && user.authenticate(params[:session][:password])
            logger.debug user.name
            logger.debug "user matched with the database"
            sign_in user

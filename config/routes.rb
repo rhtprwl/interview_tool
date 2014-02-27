@@ -4,7 +4,7 @@ InterviewTool::Application.routes.draw do
  resources :session, only: [:new, :create, :destroy]
  resources :users
  #match '/signup',  to: 'users#new',            via: 'get'
- match '/signin',  to: 'session#new',         via: 'get'
+ match '/login',  to: 'session#new',         via: 'get'
  match '/signup',  to: 'users#new',            via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
