@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     	@user = User.new(user_params)    
     	if @user.save
     		#redirect_to @user
-      		flash[:success] = "User created"
-      		redirect_to @user
+      		flash[:success] = "Welcome to the Interview tools"
+      		redirect_to users_dashboard_path
    		else
       		render 'new'
     	end
@@ -29,6 +29,11 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 	end
+
+	def dashboard
+		
+	end
+
 
 	private
 
