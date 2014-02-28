@@ -1,29 +1,26 @@
 InterviewTool::Application.routes.draw do
   get "admin/dashboard"
   get "admin/users_new"
-
-  resources :admin, only: [:create]
-
+  get "admin/users"
   get "users/dashboard"
-
-   
-  #match '/admin/users/new', to: 'admin#users/new' ,  view: 'get'
 
  #get "static_page/home"
  resources :session, only: [:new, :create, :destroy]
- resources :users
+ resources :users,:admin
+
  #match '/signup',  to: 'users#new',            via: 'get'
- match '/login',  to: 'session#new',         via: 'get'
+ match '/login',   to: 'session#new',          via: 'get'
  match '/signup',  to: 'users#new',            via: 'get'
+ match '/signout', to: 'session#destroy',      via: 'delete'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'static_page#home'
-  resources :session, only: [:new, :create, :destroy]
-  match '/signin',  to: 'session#new',         via: 'get'
-
+  
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

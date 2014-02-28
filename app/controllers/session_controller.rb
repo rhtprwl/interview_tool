@@ -3,9 +3,9 @@ class SessionController < ApplicationController
 	end
 
 	def create
-		user = User.find_by(name: params[:session][:name].downcase)
-        logger.debug "1111111111111111"
-        if user.nil?
+		      user = User.find_by(name: params[:session][:name].downcase)
+		      #logger.debug user.name
+             if user.nil?
               logger.debug "User is not registered!!!"
               flash.now[:error] = 'You are not registered!!!'
               flash.now[:error] = 'Please Sign up first!!!'
@@ -33,11 +33,12 @@ class SessionController < ApplicationController
               render 'new'
             end
         end
-	end
+ end
 
 	def destroy
+
 		   sign_out
        logger.debug "22222222"
-       redirect_to static_page_home_url
+       redirect_to root_path
 	end
 end
