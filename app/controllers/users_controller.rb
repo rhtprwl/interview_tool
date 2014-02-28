@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       if @user.save
     		 #redirect_to @user
       		flash[:success] = "User created"
-      	 redirect_to users_dashboard_path
+      	  redirect_to users_dashboard_path
           #render :action 'dashboard'
    		else
       		render 'new'

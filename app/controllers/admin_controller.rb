@@ -1,10 +1,13 @@
 class AdminController < ApplicationController
   
   def dashboard
-   
+   logger.debug "1555555555555555555555555"
+   #@user = User.find(params[:id])
+   logger.debug "1666666666666666"
   end
 
   def users_new
+ #@user = User.new
   end
 
   def create
@@ -15,7 +18,7 @@ class AdminController < ApplicationController
         flash[:success] = "New User Successfully Added!!!"
         redirect_to admin_dashboard_path
      else
-        redirect_to 'admin_users_new'
+        render 'admin_users_new'
      end
   end
   
