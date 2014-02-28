@@ -3,11 +3,13 @@
 <center>
 <div class="row">
   <div class="span6 offset3">
-   <%= form_for(@user) do |f| %>
+      <%= form_for :user, url: admin_index_path do |f| %>
       <%= render 'shared/error_messages' %>
       <%= f.label :name %>
       <%= f.text_field :name %>
-     
+      <%= f.label :role %>
+      <%= f.select(:role, options_for_select([['Admin', 'admin'], ['User', 'user']])) %>
+
       <%= f.label :password %>
       <%= f.password_field :password %>
       <%= f.label :password_confirmation, "Confirmation" %>

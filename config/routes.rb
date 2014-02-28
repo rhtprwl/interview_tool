@@ -1,10 +1,12 @@
 InterviewTool::Application.routes.draw do
-  get "admin/show"
-  
+  get "admin/dashboard"
+  get "admin/users_new"
+  get "admin/users"
+  get "users/dashboard"
 
  #get "static_page/home"
  resources :session, only: [:new, :create, :destroy]
- resources :users
+ resources :users,:admin
 
  #match '/signup',  to: 'users#new',            via: 'get'
  match '/login',   to: 'session#new',          via: 'get'
