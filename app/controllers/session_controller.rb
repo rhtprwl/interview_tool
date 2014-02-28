@@ -3,7 +3,7 @@ class SessionController < ApplicationController
 	end
 
 	def create
-		user = User.find_by(name: params[:session][:name].downcase)
+		      user = User.find_by(name: params[:session][:name].downcase)
 		      #logger.debug user.name
           if user  && user.authenticate(params[:session][:password])
            logger.debug user.name
@@ -23,6 +23,7 @@ class SessionController < ApplicationController
 	end
 
 	def destroy
+    
 		   sign_out
        logger.debug "22222222"
        redirect_to static_page_home_url
