@@ -1,5 +1,10 @@
 <h1>Admin</h1>
-<%= link_to 'Create', admin_users_new_path , :class => 'btn btn-success btn-lg'%>
-<%= link_to 'Users List', admin_users_path , :class => 'btn btn-success btn-lg'%>
+<%= link_to "Add New Category", :controller => "category", :action => "new" %>
+<%= link_to 'Add Sub Category', '#' , :class => 'btn btn-success btn-lg'%>
 
 
+<% if current_user.role== "sadmin" %>
+ <h1>Superadmin</h1>
+ <%= link_to 'Create'    , admin_users_new_path , :class => 'btn btn-success btn-lg'%>
+ <%= link_to 'Users List', admin_users_path ,     :class => 'btn btn-success btn-lg'%>
+<% end %>

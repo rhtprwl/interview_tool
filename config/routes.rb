@@ -7,7 +7,9 @@ InterviewTool::Application.routes.draw do
  #get "static_page/home"
  resources :session, only: [:new, :create, :destroy]
  resources :users,:admin
+ resources :category
 
+  
  #match '/signup',  to: 'users#new',            via: 'get'
  match '/login',   to: 'session#new',          via: 'get'
  match '/signup',  to: 'users#new',            via: 'get'

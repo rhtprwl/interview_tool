@@ -1,11 +1,11 @@
 class AdminController < ApplicationController
-  
+  before_action :require_login
+ 
   def dashboard
+
    
   end
 
-  def users_new
-  end
 
   def create
    @user = User.new(user_params) 
@@ -16,6 +16,7 @@ class AdminController < ApplicationController
         redirect_to admin_dashboard_path
      else
         redirect_to 'admin_users_new'
+
      end
   end
   
@@ -28,5 +29,11 @@ class AdminController < ApplicationController
     def user_params
   	  params.require(:user).permit(:name, :role, :email,:password,:password_confirmation)
     end
-
+   
+    def require_login
+      unless signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to login_path # halts request cycle
+      end
+    end
 end
