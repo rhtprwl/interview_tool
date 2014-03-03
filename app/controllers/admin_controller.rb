@@ -2,10 +2,14 @@ class AdminController < ApplicationController
   before_action :require_login
  
   def dashboard
-
-   
+   logger.debug "1555555555555555555555555"
+   #@user = User.find(params[:id])
+   logger.debug "1666666666666666"
   end
 
+  def users_new
+ #@user = User.new
+  end
 
   def create
    @user = User.new(user_params) 
@@ -27,7 +31,7 @@ class AdminController < ApplicationController
   private
 
     def user_params
-  	  params.require(:user).permit(:name, :role, :email,:password,:password_confirmation)
+  	  params.require(:user).permit(:name, :role, :category, :email,:password,:password_confirmation)
     end
    
     def require_login

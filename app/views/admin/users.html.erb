@@ -1,15 +1,12 @@
-
 <div class="row">
   <aside class="span4">
     <section>
-      
-    <% @user.each do |u| %>
-  <p>
-    <strong>User:</strong>
-    <%= u.name %>
-  </p>
-  <%end%>      
-     
+        <% @user.each do |u| %>
+        <p>
+          <strong>User:</strong>
+          <center><%= u.name %></center> 
+        </p>
+        <%end%>      
     </section>
   </aside>
 </div>
