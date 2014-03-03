@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 20140303102101) do
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["category_name"], name: "index_categories_on_category_name", unique: true
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
