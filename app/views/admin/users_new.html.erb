@@ -9,7 +9,11 @@
       <%= f.text_field :name %>
       <%= f.label :role %>
       <%= f.select(:role, options_for_select([['Admin', 'admin'], ['User', 'user']])) %>
-      <%=render 'category/category_list' %>
+
+      <%= f.label :category %>
+      <%= f.collection_select(:category, Category.all, :id, :category_name ) %>
+      <%#= f.select :category_name, Category.all.collect {|category| [ category.category_name ] } %>
+      
       <%= f.label :password %>
       <%= f.password_field :password %>
       <%= f.label :password_confirmation, "Confirmation" %>
