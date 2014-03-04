@@ -4,6 +4,6 @@
 <% end %>
 
 <%= link_to "Add New Category", :controller => "category", :action => "new" ,:class =>'btn btn-success btn-lg'%>
-<%= link_to 'Add Sub Category', '#' , :class => 'btn btn-success btn-lg'%>
+<%= link_to 'Add Sub Category', :controller => "subcategory", :action => "new" , :class => 'btn btn-success btn-lg'%>
 <%= link_to 'View All Useres', admin_users_path , :class => 'btn btn-success btn-lg'%>
 

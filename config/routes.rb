@@ -8,6 +8,7 @@ InterviewTool::Application.routes.draw do
  resources :session, only: [:new, :create, :destroy]
  resources :users,:admin
  resources :category
+ resources :subcategory
 
  #match '/signup',  to: 'users#new',            via: 'get'
  match '/login',   to: 'session#new',          via: 'get'
