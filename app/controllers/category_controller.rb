@@ -19,7 +19,7 @@ class CategoryController < ApplicationController
     	end
 	end
 
-
+ 
 
 	private
 

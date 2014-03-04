@@ -1,0 +1,19 @@
+<% provide(:title, 'Add New SubCategory') %>
+<h1>Add New SubCategory</h1>
+<center>
+<div class="row">
+  <div class="span6 offset3">
+   <%#= form_form :category, url: category_index_path do |f| %>
+   <%= form_for :subcategory, url: subcategory_index_path do |f| %>
+      <%#= render 'shared/error_messages' %>
+      <%= f.label :category_name %>
+      <%= f.collection_select(:category_id, Category.all, :id, :category_name ) %>
+
+      <%=f.label :Subcategory_name %>
+      <%=f.text_field :subcategory_name %>
+           
+      <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</center>
