@@ -1,0 +1,25 @@
+<% provide(:title, 'Add Questions') %>
+<h1>Add New SubCategory</h1>
+<center>
+<div class="row">
+  <div class="span6 offset3">
+   <%#= form_form :category, url: category_index_path do |f| %>
+   <%= form_for :add_questions, url: add_questions_path do |f| %>
+      <%#= render 'shared/error_messages' %>
+      <%= f.label :Category_name %>
+      <%= f.collection_select(:category_id, Category.all, :id, :category_name ) %>
+
+      <%= f.label :Subcategory_name %>
+      <%= f.collection_select(:subcategory_id, Subcategory.all, :id, :subcategory_name ) %>
+
+      <%=f.label :Select_Question_Level %>
+      <%= f.select(:question_level, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5], ['6',6]])) %>
+
+      <%=f.label :Add_Question %>
+      <%=f.text_field :question %>
+           
+      <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</center>
