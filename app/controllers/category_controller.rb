@@ -1,4 +1,6 @@
 class CategoryController < ApplicationController
+  before_action :require_login
+  
 	def new
 		@category=Category.new
 	end
@@ -23,5 +25,13 @@ class CategoryController < ApplicationController
 
 		def user_params
   	  		params.require(:category).permit(:category_name)
-    	end
+    end
+
+    def require_login
+      unless signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to login_path # halts request cycle
+      end
+    end
+
 end

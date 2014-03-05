@@ -1,4 +1,6 @@
 class SubcategoryController < ApplicationController
+  before_action :require_login
+
 	def new
 		@subcategory=Subcategory.new
 	end
@@ -23,5 +25,13 @@ class SubcategoryController < ApplicationController
 
 		def user_params
   	  		params.require(:subcategory).permit(:category_id, :subcategory_name)
-    	end
+    end
+
+    def require_login
+      unless signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to login_path # halts request cycle
+      end
+    end
+    
 end
