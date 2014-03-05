@@ -1,0 +1,13 @@
+.form-control {
+  width: 60% !important;
+  margin: auto, 0 !important;
+}
+
+.form-group {
+	margin-left: 20% !important;
+}
+
+.form-group .btn-primary{
+	margin-left: 20% !important;
+
+}

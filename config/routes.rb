@@ -21,7 +21,7 @@ InterviewTool::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_page#home'
+  root 'session#new'
   
   
   # Example of regular route:qw3aw3wqww3e3ae3s3w3ww3aw3aw3www3wwwwe3w3w3w3awq

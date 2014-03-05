@@ -1,4 +1,6 @@
 class AddQuestionsController < ApplicationController
+	before_action :require_login
+
   def new
 		@add_question=AddQuestion.new
 	end
@@ -22,6 +24,13 @@ class AddQuestionsController < ApplicationController
 	private
 
 		def user_params
-  	  		params.require(:add_questions).permit(:category_id, :subcategory_id, :question_level, :question)
+  	  		params.require(:add_questions).permit(:category_id, :subcategory_id, :question_level, :question, :option1, :option2, :option3, :option4, :answer)
+    end
+
+    	def require_login
+      		unless signed_in?
+        	flash[:error] = "You must be logged in to access this section"
+        	redirect_to login_path # halts request cycle
+      		end
     	end
 end

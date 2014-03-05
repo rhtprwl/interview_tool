@@ -5,10 +5,12 @@ gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 
+group :developmnet do
+  gem 'sqlite3'
+end
 
-gem 'bootstrap-sass'#, '2.3.2.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
-
+gem 'twitter-bootstrap-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
