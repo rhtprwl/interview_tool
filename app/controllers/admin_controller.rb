@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
   before_action :require_login
  
+
      def users_new
        @user= User.new 
      end

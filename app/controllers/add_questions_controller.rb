@@ -8,6 +8,7 @@ class AddQuestionsController < ApplicationController
 	def create
 		@add_question = AddQuestion.new(user_params)   
       	logger.debug "Creating Questions....."
+
     	logger.debug user_params
       	logger.debug "params of adding_questions"
       	if @add_question.save
@@ -19,7 +20,7 @@ class AddQuestionsController < ApplicationController
    		else
       		render 'new'
     	end
-	end
+  end
 
 	private
 
