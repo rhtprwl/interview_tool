@@ -7,14 +7,8 @@ gem 'rails', '4.0.0'
 group :developmnet do
   gem 'sqlite3'
 end
-<<<<<<< HEAD
-=======
-#gem 'sqlite3'
-gem 'bootstrap-sass'#, '2.3.2.0'
-gem 'bcrypt-ruby', '~> 3.0.0'
 gem "default_value_for", "~> 3.0.0"
 
->>>>>>> 6f97f5a109f1ab2f4cc56e37b3428b6856b87d30
 
 
 gem 'bcrypt-ruby', '~> 3.0.0'
