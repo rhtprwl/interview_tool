@@ -1,18 +1,18 @@
 InterviewTool::Application.routes.draw do
+  get "add_questions/new"
   get "admin/dashboard"
   get "admin/users_new"
   get "admin/users"
   get "users/dashboard"
   get "category/show"
+  #get "admin/edit"
 
  #get "static_page/home"
  resources :session, only: [:new, :create, :destroy]
- #resources :users
- resources :admin
+ resources :users,:admin
  resources :category
-
- resources :subcategory,:add_questions
-
+ resources :subcategory
+ resources :add_questions
 
  #match '/signup',  to: 'users#new',            via: 'get'
  match '/login',   to: 'session#new',          via: 'get'
@@ -27,7 +27,7 @@ InterviewTool::Application.routes.draw do
   root 'session#new'
   
   
-  # Example of regular route:qw3aw3wqww3e3ae3s3w3ww3aw3aw3www3wwwwe3w3w3w3awq
+  # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
