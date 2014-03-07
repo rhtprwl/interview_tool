@@ -23,7 +23,7 @@ class AdminController < ApplicationController
         flash[:success] = "New User Successfully Added!!!"
         redirect_to admin_dashboard_path
        else
-        redirect_to 'admin_users_new'
+        render 'users_new'
        end
      end
    
@@ -32,7 +32,9 @@ class AdminController < ApplicationController
        @user = User.find(params[:id])
        if @user.update_attributes(user_params)
         flash[:success] = "Profile updated"
-        redirect_to @user
+       
+        logger.debug user_params
+        render 'admin_dashboard'
        else
          render 'edit'
        end

@@ -2,16 +2,17 @@ class AddQuestionsController < ApplicationController
 	before_action :require_login
 
   def new
-		@add_question=AddQuestion.new
+		@add_questions=AddQuestion.new
 	end
 
 	def create
-		@add_question = AddQuestion.new(user_params)   
+    
+		@add_questions = AddQuestion.new(user_params)   
       	logger.debug "Creating Questions....."
 
     	logger.debug user_params
       	logger.debug "params of adding_questions"
-      	if @add_question.save
+      	if @add_questions.save
     		 #redirect_to @user
     		 logger.debug "question added"
       		flash[:success] = "new question added"
@@ -25,7 +26,7 @@ class AddQuestionsController < ApplicationController
 	private
 
 		def user_params
-  	  		params.require(:add_questions).permit(:category_id, :subcategory_id, :question_level, :question, :option1, :option2, :option3, :option4, :answer)
+  	  		params.require(:add_question).permit(:category_id, :subcategory_id, :question_level, :question, :option1, :option2, :option3, :option4, :answer)
     end
 
     	def require_login

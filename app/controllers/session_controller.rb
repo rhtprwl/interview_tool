@@ -7,8 +7,8 @@ class SessionController < ApplicationController
 		      #logger.debug user.name
              if user.nil?
               logger.debug "User is not registered!!!"
-              flash.now[:error] = 'You are not registered!!!'
-              flash.now[:error] = 'Please Sign up first!!!'
+              #flash.now[:error] = 'You are not registered!!!'
+              #flash.now[:error] = 'Please Sign up first!!!'
               #flash[:error] = 'Invalid email/password combination'
               render 'new'
           

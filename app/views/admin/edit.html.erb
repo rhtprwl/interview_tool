@@ -2,8 +2,9 @@
 <center>
 <div class="row">
   <div class="span6 offset3">
-      <%= form_for :user method: :post do |f| %>
-       <%#= render 'shared/error_messages' object: f.object  %>
+      <%= form_for(@user) do |f| %>
+      <%#= form_for @user , url:edit_admin_path do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>

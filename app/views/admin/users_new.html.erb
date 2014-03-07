@@ -4,7 +4,7 @@
 <h1 align="center">Sign up</h1>
 <div class="form-group">
    
-      <%= form_for(@user) do |f| %>
+      <%= form_for @user , url:admin_index_path do |f| %>
       
       <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
