@@ -3,7 +3,7 @@ class AdminController < ApplicationController
  
 
      def users_new
-       @user= User.new 
+       @user = User.new 
      end
      
      def dashboard
@@ -18,12 +18,14 @@ class AdminController < ApplicationController
 
      def create
        @user = User.new(user_params) 
+       logger.debug "lkkkkkkkkkkkkkkkkklkkkkkkkkk"
        logger.debug user_params   
        if @user.save
         flash[:success] = "New User Successfully Added!!!"
         redirect_to admin_dashboard_path
        else
-        redirect_to 'admin_users_new'
+        logger.debug "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
+        render 'users_new'
        end
      end
    
@@ -32,9 +34,9 @@ class AdminController < ApplicationController
        @user = User.find(params[:id])
        if @user.update_attributes(user_params)
         flash[:success] = "Profile updated"
-        redirect_to @user
+        redirect_to root_path
        else
-         render 'edit'
+         #render 'edit'
        end
      end
   

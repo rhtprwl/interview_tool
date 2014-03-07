@@ -7,12 +7,13 @@ gem 'rails', '4.0.0'
 group :developmnet do
   gem 'sqlite3'
 end
+gem 'bootstrap-sass', '2.3.2.0'
 gem "default_value_for", "~> 3.0.0"
 
 
 
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'twitter-bootstrap-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

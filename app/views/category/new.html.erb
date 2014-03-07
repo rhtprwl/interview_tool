@@ -3,8 +3,8 @@
  <div class="form-group">
 
    <%#= form_form :category, url: category_index_path do |f| %>
-   <%= form_for :category, url: category_index_path do |f| %>
-      <%#= render 'shared/error_messages' %>
+   <%= form_for @category, url: category_index_path do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
       <%= f.label :Category_name%>
       <%= f.text_field :category_name %>

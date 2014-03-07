@@ -4,8 +4,8 @@
 <h1 align="center">Add Question</h1>
 <div class="form-group">
   
-     <%= form_for :add_questions, url: add_questions_path do |f| %>
-      <%#= render 'shared/error_messages', object: f.object %>
+     <%= form_for @add_questions, url: add_questions_path do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
          <%= f.label :Category_name%>
          <%= f.collection_select(:category_id, Category.all, :id, :category_name , include_blank: true,class: "form-control") %>

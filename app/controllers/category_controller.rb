@@ -20,6 +20,12 @@ class CategoryController < ApplicationController
       		render 'new'
     	end
 	end
+ def show
+
+       @category=Category.all
+
+  end
+
 
 
 	private
