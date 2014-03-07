@@ -27,6 +27,10 @@ class CategoryController < ApplicationController
   end
 
 
+  def show
+       @category=Category.all
+  end
+
 
 	private
 

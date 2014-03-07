@@ -35,6 +35,7 @@ class AdminController < ApplicationController
        if @user.update_attributes(user_params)
         flash[:success] = "Profile updated"
         redirect_to root_path
+
        else
          #render 'edit'
        end

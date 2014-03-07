@@ -2,6 +2,7 @@ class AddQuestionsController < ApplicationController
  before_action :require_login
 
   def new
+
   @add_questions=AddQuestion.new
  end
 

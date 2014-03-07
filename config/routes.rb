@@ -5,7 +5,7 @@ InterviewTool::Application.routes.draw do
   get "admin/users"
   get "users/dashboard"
   get "category/show"
-  #get "admin/edit"
+
 
  #get "static_page/home"
  resources :session, only: [:new, :create, :destroy]
