@@ -1,5 +1,6 @@
-
-
+<% if (signed_in? && current_user.role=='sadmin') %>
+<li><%= link_to 'Add new user', admin_users_new_path , :class => 'btn btn-success btn-lg'%></li>
+<% end %>
 
 <h1 align="center">User List</h1>
 <table class="table">

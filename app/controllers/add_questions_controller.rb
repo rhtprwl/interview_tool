@@ -1,10 +1,9 @@
 class AddQuestionsController < ApplicationController
- before_action :require_login
+	before_action :require_login
 
   def new
-
-  @add_questions=AddQuestion.new
- end
+		@add_questions=AddQuestion.new
+	end
 
  def create
     logger.debug "Creating11111111111111111111111111111111....."
