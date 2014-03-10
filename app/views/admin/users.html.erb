@@ -1,9 +1,13 @@
 <% if (signed_in? && current_user.role=='sadmin') %>
-<li><%= link_to 'Add new user', admin_users_new_path , :class => 'btn btn-success btn-lg'%></li>
+<div style="float:right;margin-right:30px;">
+<%= link_to 'Add new user', admin_users_new_path , :class => 'btn btn-success btn-lg'%>
 <% end %>
+</div>
 
 <h1 align="center">User List</h1>
-<table class="table">
+<div class="table-responsive">
+  <table class="table table-bordered table table-hover table table-striped tablewidth">
+
 <tr>
 <th>User Id</th>
 <th>User Name</th>
@@ -16,9 +20,13 @@
 <td><%=u.id%></td>
 <td><%=u.name%></td>
 <td><%=u.role%></td>
-<td><%= link_to 'Edit', edit_admin_path(u)%> </td>
-<td><%= link_to 'Delete', admin_path(u),
+<td><%= link_to 'Edit', edit_admin_path(u) , :class => 'btn btn-success btn-lg' %> </td>
+<td><%= link_to 'Delete', admin_path(u),:class => 'btn btn-danger btn-lg',
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
+
+
 <%end%>
 <%end%>
+</table>
+</div>
