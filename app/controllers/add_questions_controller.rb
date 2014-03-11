@@ -7,7 +7,7 @@ class AddQuestionsController < ApplicationController
 
  def create
     logger.debug "Creating11111111111111111111111111111111....."
-  @add_questions = AddQuestion.new(user_params)   
+      @add_questions = AddQuestion.new(user_params)   
        logger.debug "Creating Questions....."
 
      logger.debug user_params
@@ -22,6 +22,12 @@ class AddQuestionsController < ApplicationController
         render 'new'
      end
   end
+  
+
+  def show
+   @add_questions=AddQuestion.all
+  end
+
 
  private
 

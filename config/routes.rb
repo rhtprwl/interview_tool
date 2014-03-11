@@ -6,8 +6,7 @@ InterviewTool::Application.routes.draw do
   get "users/dashboard"
   get "category/show"
   get "subcategory/show"
-
- #get "static_page/home"
+   #get "static_page/home"
  resources :session, only: [:new, :create, :destroy]
  resources :users,:admin
  resources :category

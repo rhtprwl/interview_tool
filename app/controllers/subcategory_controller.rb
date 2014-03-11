@@ -5,25 +5,24 @@ class SubcategoryController < ApplicationController
 	def new
 		@subcategory=Subcategory.new
 	end
+ 
+  def edit
+    @subcategory = Subcategory.find(params[:id])
+  end
 
 	def create
 		@subcategory = Subcategory.new(user_params)
-      	logger.debug @subcategory.parent
-        if @subcategory.parent==""
-      	     @subcategory.parent="root"
-              logger.debug "1111111111111111111111111111111111"
-              logger.debug @subcategory.parent
-              logger.debug "22222222222222222222222222222222222222222222"
+      	logger.debug "IN Creaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaate"
+        if @subcategory.parent==""  ||  @subcategory.parent=="root" 
+           @subcategory.parent="root"
+             
         else
         end
         
         if @subcategory.save
-    		 #redirect_to @user
-    		     logger.debug "subcategory createddd"
-      		   flash[:success] = "new subcategory added"
+    		 	   flash[:success] = "new subcategory added"
       	  	 redirect_to admin_dashboard_path
-          #render :action 'dashboard'
-   		  else
+         else
       	    render 'new'
     	 end
 	end
@@ -31,7 +30,32 @@ class SubcategoryController < ApplicationController
   def show
        @subcategory=Subcategory.all
   end
+
+  def destroy
+       @subcategory = Subcategory.find(params[:id])
+       @sub = Subcategory.where(:parent =>@subcategory.subcategory_name)
+       @subcategory.destroy
+       @sub.each do |u| 
+       u.destroy
+       end
+       redirect_to subcategory_path 
+  end
 	
+  def update
+      logger.debug "in Update function"
+       @subcategory = Subcategory.find(params[:id])
+       if @subcategory.parent=="" ||  @subcategory.parent=="root"
+             @subcategory.parent="root"
+        else
+        end
+       if @subcategory.update_attributes(user_params)
+        flash[:success] = "Profile updated"
+        redirect_to subcategory_path
+
+       else
+         #render 'edit'
+       end
+ end
 
   private
 
