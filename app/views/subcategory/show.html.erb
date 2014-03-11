@@ -8,11 +8,13 @@
   <table class="table table-bordered table table-hover table table-striped tablewidth">
 	<tr>
 		<th>Category Id</th>
-		<th>Category</th>
- 		<% @category.each do |c| %>
+		<th>Category Name</th>
+		<th>Parent</th>
+ 		<% @subcategory.each do |c| %>
  	<tr>
 		<td><%=c.id%></td>
-		<td><%=c.category_name%></td>
+		<td><%=c.subcategory_name%></td>
+		<td><%=c.parent%></td>
 	</tr>
 <%end%>
 </table>

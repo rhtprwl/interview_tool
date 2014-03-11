@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305071014) do
+ActiveRecord::Schema.define(version: 20140311072412) do
 
   create_table "add_questions", force: true do |t|
     t.integer  "category_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140305071014) do
     t.string   "subcategory_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "parent"
   end
 
   add_index "subcategories", ["subcategory_name"], name: "index_subcategories_on_subcategory_name", unique: true

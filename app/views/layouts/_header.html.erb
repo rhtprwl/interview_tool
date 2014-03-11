@@ -9,7 +9,7 @@
           <li><%#= link_to "Help", '#' %></li>
           <% if (signed_in? && current_user.role=='sadmin') || (signed_in? && current_user.role=='admin') %>
             <li><%= link_to "Manage User", admin_users_path %></li>
-            <li><%= link_to "Manage Category", :controller => "category", :action => "show" %></li>
+            <li><%= link_to "Manage Category", :controller => "subcategory", :action => "show" %></li>
             <!--<li><%#= link_to 'Create', admin_users_new_path %></li>
 
             <li id="fat-menu" class="dropdown">
