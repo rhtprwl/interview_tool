@@ -3,10 +3,9 @@
     <div class="container">
       <%#= link_to "Interview Tools", root_path, id: "logo" %>
       <nav>
-        <ul class="nav pull-left">
+        <ul class="nav navbar-nav navbar-left">
           
-          <li><%#= link_to "Home", root_path %></li>
-          <li><%#= link_to "Help", '#' %></li>
+          
           <% if (signed_in? && current_user.role=='sadmin') || (signed_in? && current_user.role=='admin') %>
             <li><%= link_to "Manage User", admin_users_path %></li>
             <li><%= link_to "Manage Category", :controller => "category", :action => "show" %></li>
@@ -41,7 +40,7 @@
 
             </ul>
 
-            <ul class="nav pull-right">
+            <ul class="nav navbar-nav navbar-right">
 
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
