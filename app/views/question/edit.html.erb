@@ -5,16 +5,16 @@
 <h1 align="center">Edit Question</h1>
 <div class="form-group formwidth">
   
-     <%= form_for @add_questions , :controller => "add_questions", :action => "edit"  do |f| %>
+     <%= form_for @question ,:controller => "question", :action => "edit"  do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
          <%= f.label :Category_name%>
-         <%= f.collection_select(:category_id, Subcategory.where(:parent=>'root'), :subcategory_name, :subcategory_name , :readonly => true,class: "form-control") %>
+         <%= f.collection_select(:category, Category.where(:id=>$foo.id), :parent, :parent , class: "form-control") %>
        </div>
        
       <div class="form-group">
          <%= f.label :Subcategory_name%>
-          <%= f.collection_select(:subcategory_id, Subcategory.where.not(:parent=>'root'),  :subcategory_name ,:subcategory_name ,:readonly => true,class: "form-control") %>
+          <%= f.collection_select(:subcategory_id, Category.where(:id=>$foo.id),  :id ,:category_name ,class: "form-control") %>
        </div>
        
       <div class="form-group">
@@ -47,7 +47,8 @@
       <%=f.label :Correct_Answer %>
       <%=f.text_field :answer %>
 </div>
-         <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+         <%= f.submit "Edit", class: "btn btn-large btn-primary" %>
+        <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" %>
     <% end %>
   
 </div>

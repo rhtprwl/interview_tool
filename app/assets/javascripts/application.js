@@ -27,19 +27,19 @@ function validate()
   	 
   	 document.getElementById("error1").innerHTML="*UserName is mandatory"
   	 document.getElementById("error2").innerHTML="*Password is mandatory"
-    return false;  
+     return false;  
   }	 
 	  else if(user=="") 
   {
   	 
   	 document.getElementById("error1").innerHTML="*UserName is mandatory"
-    return false;  
+     return false;  
   }	 
   else if(pass=="") 
   {
   	 
   	 document.getElementById("error2").innerHTML="*Password is mandatory"
-    return false;  
+     return false;  
   }	 
   else   {
 	  return true;
