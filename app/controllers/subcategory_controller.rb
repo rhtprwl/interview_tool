@@ -26,6 +26,9 @@ class SubcategoryController < ApplicationController
       	    render 'new'
     	 end
 	end
+  def show_category
+     @subcategory=Subcategory.all
+  end
   
   def show
        @subcategory=Subcategory.all

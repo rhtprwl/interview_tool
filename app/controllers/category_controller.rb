@@ -1,43 +1,75 @@
 class CategoryController < ApplicationController
+
   before_action :require_login
-  
-	def new
-		@category=Category.new
-	end
 
-	def create
-		@category = Category.new(user_params)   
-      	logger.debug "11111111"
-    	logger.debug user_params
-      	logger.debug "22222222"
-      	if @category.save
-    		 #redirect_to @user
-    		 logger.debug "3333333333"
-      		flash[:success] = "new category added"
-      	  	redirect_to admin_dashboard_path
-          #render :action 'dashboard'
-   		else
-      		render 'new'
-    	end
-	end
+  def new
+    @category=Category.new
+  end
  
+  def edit
+    @category = Category.find(params[:id])
+  end
 
+  def create
+    @category = Category.new(user_params)
+        logger.debug user_params
+        if @category.parent==""  ||  @category.parent=="root" 
+           @category.parent="root"
+             
+        else
+        end
+        
+        if @category.save
+             flash[:success] = "new Category added"
+             redirect_to admin_dashboard_path
+         else
+            render 'new'
+       end
+  end
+  
   def show
        @category=Category.all
   end
 
+  def destroy
+       @category = Category.find(params[:id])
+       @sub = Category.where(:parent =>@category.category_name)
+       @category.destroy
+       @sub.each do |u| 
+       u.destroy
+       end
+       redirect_to category_path 
+  end
+  
+  def update
+      logger.debug "in Update function"
+       @category = Category.find(params[:id])
+       if @category.parent=="" ||  @category.parent=="root"
+             @category.parent="root"
+             user_params.parent="root"
+        else
+        end
+       if @category.update_attributes(user_params)
+        flash[:success] = "Profile updated"
+        redirect_to category_path
 
-	private
+       else
+         #render 'edit'
+       end
+ end
 
-		def user_params
-  	  		params.require(:category).permit(:category_name)
-    end
+  private
 
-    def require_login
-      unless signed_in?
-        flash[:error] = "You must be logged in to access this section"
-        redirect_to login_path # halts request cycle
+      def user_params
+          params.require(:category).permit(:parent, :category_name)
       end
-    end
 
+
+      def require_login
+        unless signed_in?
+          flash[:error] = "You must be logged in to access this section"
+          redirect_to login_path # halts request cycle
+        end
+      end
+    
 end

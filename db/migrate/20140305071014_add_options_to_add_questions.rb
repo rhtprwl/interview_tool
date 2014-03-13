@@ -1,9 +1,9 @@
-class AddOptionsToAddQuestions < ActiveRecord::Migration
+class AddOptionsToQuestions < ActiveRecord::Migration
   def change
-    add_column :add_questions, :option1, :string
-    add_column :add_questions, :option2, :string
-    add_column :add_questions, :option3, :string
-    add_column :add_questions, :option4, :string
-    add_column :add_questions, :answer, :string
+    add_column :questions, :option1, :string
+    add_column :questions, :option2, :string
+    add_column :questions, :option3, :string
+    add_column :questions, :option4, :string
+    add_column :questions, :answer, :string
   end
 end

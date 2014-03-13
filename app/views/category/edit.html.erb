@@ -1,11 +1,11 @@
-<% provide(:title, 'Add New SubCategory') %>
+<% provide(:title, 'Edit Category') %>
 <div class="container containerwidth" style="background-color:#ffffff;border:1px solid #dedede;box-shadow:2px 2px 2px 2px #dedede;">
 
 <h1 align="center">Add New Category</h1>
 
  <div class="form-group formwidth">
    <%#= form_form :category, url: category_index_path do |f| %>
-   <%= form_for @category, as: :category, url: admin_categories_new_path do |f| %>
+   <%= form_for @category , :controller => "category", :action => "edit" do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
       <%= f.label :Parent_Category %>
@@ -16,7 +16,7 @@
       <%=f.text_field :category_name %>
            </div>
             <div class="form-group">
-      <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Edit", class: "btn btn-large btn-primary" %>
     <% end %>
     </div>
     </div>
