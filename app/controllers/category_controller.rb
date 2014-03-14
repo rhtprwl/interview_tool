@@ -21,7 +21,7 @@ class CategoryController < ApplicationController
         
         if @category.save
              flash[:success] = "new Category added"
-             redirect_to admin_dashboard_path
+             redirect_to  admin_categories_path 
          else
             render 'new'
        end
@@ -38,20 +38,22 @@ class CategoryController < ApplicationController
        @sub.each do |u| 
        u.destroy
        end
-       redirect_to category_path 
+       redirect_to category_path() 
   end
   
   def update
-      logger.debug "in Update function"
        @category = Category.find(params[:id])
-       if @category.parent=="" ||  @category.parent=="root"
-             @category.parent="root"
-             user_params.parent="root"
-        else
-        end
+       @sub = Category.where(:parent =>@category.category_name)
+       @sub.each do |u| 
+       logger.debug u.parent
+       end
        if @category.update_attributes(user_params)
-        flash[:success] = "Profile updated"
-        redirect_to category_path
+           if @category.parent=="" ||  @category.parent=="root"
+                @category.parent="root"
+                @category.save
+           else
+           end
+           redirect_to category_path
 
        else
          #render 'edit'
@@ -62,7 +64,7 @@ class CategoryController < ApplicationController
 
       def user_params
           params.require(:category).permit(:parent, :category_name)
-      end
+          end
 
 
       def require_login

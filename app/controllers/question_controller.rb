@@ -1,8 +1,12 @@
 class QuestionController < ApplicationController
 	before_action :require_login
    def new
-
+  logger.debug "________________________________________________________"
+       logger.debug $foo.id
+       logger.debug "________________________________________________________"
+     
      @question=Question.new
+
 	 end
 
    def create
@@ -14,7 +18,7 @@ class QuestionController < ApplicationController
         if @question.save
            logger.debug "question added"
            flash[:success] = "new question added"
-       redirect_to root_path
+       redirect_to question_path($foo.id)
           else
           render 'new'
         end
@@ -28,21 +32,26 @@ class QuestionController < ApplicationController
       @question =Question.find(params[:id])
        if @question.update_attributes(user_params)
         flash[:success] = "question updated"
-        redirect_to question_path
+        redirect_to question_path($foo.id)
 
        else
-         #render 'edit'
+         render 'edit'
        end
     end
     
     def destroy
        @question= Question.find(params[:id])
        @question.destroy
-       redirect_to question_path
+       redirect_to question_path($foo.id)
     end
 
 
     def show
+       $foo=Category.find(params[:id])
+       logger.debug "________________________________________________________"
+       logger.debug $foo
+       logger.debug "________________________________________________________"
+       
        @question=Question.where(:subcategory_id => params[:id])
     end
 
@@ -54,6 +63,7 @@ class QuestionController < ApplicationController
     end
 
      def require_login
+      
         unless signed_in?
          flash[:error] = "You must be logged in to access this section"
          redirect_to login_path # halts request cycle

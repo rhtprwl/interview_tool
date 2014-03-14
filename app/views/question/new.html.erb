@@ -9,12 +9,12 @@
       <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
          <%= f.label :Category_name%>
-         <%= f.collection_select(:category, Category.where(:parent=>'root'), :category_name, :category_name , class: "form-control") %>
+         <%= f.collection_select(:category, Category.where(:id=>$foo.id), :parent, :parent , class: "form-control") %>
        </div>
        
       <div class="form-group">
          <%= f.label :Subcategory_name%>
-          <%= f.collection_select(:subcategory_id, Category.where.not(:parent=>'root'),  :id ,:category_name ,class: "form-control") %>
+          <%= f.collection_select(:subcategory_id, Category.where(:id=>$foo.id),  :id ,:category_name ,class: "form-control") %>
        </div>
        
       <div class="form-group">
@@ -30,24 +30,26 @@
       <div class="form-group" >
       <%=f.label :Option1 %>
       <%=f.text_field :option1 %>
-</div>
+     </div>
       <div class="form-group" >
       <%=f.label :Option2 %>
-      <%=f.text_field :option2 %>
-</div>
+      <%=f.text_field :option2 %> 
+     </div>
       <div class="form-group" >
       <%=f.label :Option3 %>
       <%=f.text_field :option3 %>
-</div>
+     </div>
       <div class="form-group" >
       <%=f.label :Option4 %>
       <%=f.text_field :option4 %>
-</div>
+     </div>
       <div class="form-group" >
       <%=f.label :Correct_Answer %>
       <%=f.text_field :answer %>
-</div>
+     </div>
+    
          <%= f.submit "Add", class: "btn btn-large btn-primary" %>
-    <% end %>
+          <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" %>
+     <% end %>
   
 </div>
