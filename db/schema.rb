@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140312112420) do
     t.string   "parent"
   end
 
-  create_table "question", force: true do |t|
+  create_table "questions", force: true do |t|
     t.string   "category"
     t.integer  "subcategory_id"
     t.integer  "question_level"
