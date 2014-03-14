@@ -5,7 +5,7 @@
 <h1 align="center">Add Question</h1>
 <div class="form-group formwidth">
   
-     <%= form_for @question, as: :question, url: admin_question_new_path do |f| %>
+     <%= form_for @question, as: :question, url: admin_categories_question_new_path do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
          <%= f.label :Category_name%>

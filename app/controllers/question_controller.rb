@@ -1,9 +1,6 @@
 class QuestionController < ApplicationController
 	before_action :require_login
    def new
-  logger.debug "________________________________________________________"
-       logger.debug $foo.id
-       logger.debug "________________________________________________________"
      
      @question=Question.new
 
@@ -18,7 +15,7 @@ class QuestionController < ApplicationController
         if @question.save
            logger.debug "question added"
            flash[:success] = "new question added"
-       redirect_to question_path($foo.id)
+           redirect_to question_path($foo.id)
           else
           render 'new'
         end

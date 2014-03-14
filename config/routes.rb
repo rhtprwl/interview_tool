@@ -20,8 +20,9 @@ InterviewTool::Application.routes.draw do
  get  '/admin/categories' => 'category#show'
  get  '/admin/categories/new' => 'category#new'
  post '/admin/categories/new' => 'category#create'                                                                                                                        
- get  '/admin/question/new' => 'question#new'
- post '/admin/question/new' => 'question#create' 
+ get  '/admin/categories/question/new' => 'question#new'
+ post '/admin/categories/question/new' => 'question#create' 
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
