@@ -20,11 +20,13 @@ class QuestionController < ApplicationController
         # logger.debug question_params
         
         if @question.save
-            (1..4).each do |i|
-              
+            (1..10).each do |i|
               #@option = Option.new(:question_id => @question.id, :option => params["question"]["option1"])
-              @option = Option.new(:question_id => @question.id, :option => params["question"]["option#{i}"])
-              @option.save
+                unless params["question"]["option#{i}"].nil?
+                  logger.debug i
+                  @option = Option.new(:question_id => @question.id, :option => params["question"]["option#{i}"])
+                  @option.save
+                end
             end
             #flash[:success] = "new question added"
                 if @option.save

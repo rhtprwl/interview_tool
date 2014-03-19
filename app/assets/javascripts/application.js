@@ -59,9 +59,9 @@
   var newTextBoxDiv = $(document.createElement('div'))
        .attr("id", 'TextBoxDiv' + counter);
  
-  newTextBoxDiv.after().html('<label>Option #'+ counter + ' : </label>' +
-        '<input type="text" name="textbox' + counter + 
-        '" id="textbox' + counter + '" value="" >');
+  newTextBoxDiv.after().html('<label>Option'+ counter + '</label>' +
+        '<input type="text" name="question[option' + counter + ']'+
+        '" id="question_option' + counter + '" value="" >');
  
   newTextBoxDiv.appendTo("#TextBoxesGroup");
  
@@ -71,7 +71,7 @@
  
      $("#removeButton").click(function () {
   if(counter==1){
-          alert("No more textbox to remove");
+          alert("No more option field to remove");
           return false;
        }   
  
