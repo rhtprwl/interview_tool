@@ -60,15 +60,27 @@
     <div id="container"></div>
  -->
 
-    <div id='TextBoxesGroup'>
+    <!-- <div id='TextBoxesGroup'>
       <div id="TextBoxDiv1">
         <label>Option #1 : </label>
         <input type='textbox' id='textbox1' >
       </div>
+    </div> -->
+
+    <div id='TextBoxesGroup'>
+      <div id="TextBoxDiv1">
+        <%= label_tag(:q, "Option #1 :") %>
+        <%#= text_field_tag(:q) , id: "textbox1"%>
+        <%= text_field_tag(:q , '',:id =>'textbox1')%>
+      </div>
     </div>
 
-    <input type='button' value='Add More Options' id='addButton'><br/>
-    <input type='button' value='Remove' id='removeButton'><br/>
+    <!-- <input type='button' value='Add More Options' id='addButton'><br/> -->
+    <!-- <input type='button' value='Remove' id='removeButton'><br/> -->
+
+    <%= button_tag "Add More Options", :id => "addButton", :type => "button" %>
+    <%= button_tag "Remove", :id => "removeButton", :type => "button" %>
+
     
     <div class="form-group" >
       <%=f.label :Correct_Answer %>
