@@ -1,25 +1,27 @@
 InterviewTool::Application.routes.draw do
-  get "add_questions/new"
+  
   get "admin/dashboard"
-  get "admin/users_new"
+  #get "admin/users_new"
   get "admin/users"
   get "users/dashboard"
-  get "category/show"
+ 
 
-
- #get "static_page/home"
  resources :session, only: [:new, :create, :destroy]
- resources :users,:admin
- resources :category
- resources :subcategory
- resources :add_questions
+ 
+ resources :admin, only:[:new,:create,:destroy,:edit,:update]
+ resources :category,only:[:destroy,:edit,:update,:show]
+ resources :question,only:[:destroy,:edit,:update,:show]
 
  #match '/signup',  to: 'users#new',            via: 'get'
- match '/login',   to: 'session#new',          via: 'get'
- match '/signup',  to: 'users#new',            via: 'get'
- match '/signout', to: 'session#destroy',      via: 'delete'
-
-
+ match '/login',   to: 'session#new',           via: 'get'
+ match '/signup',  to: 'users#new',             via: 'get'
+ match '/signout', to: 'session#destroy',       via: 'delete'
+ get  '/admin/users/new' => 'admin#users_new'
+ get  '/admin/categories' => 'category#show'
+ get  '/admin/categories/new' => 'category#new'
+ post '/admin/categories/new' => 'category#create'                                                                                                                        
+ get  '/admin/question/new' => 'question#new'
+ post '/admin/question/new' => 'question#create' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

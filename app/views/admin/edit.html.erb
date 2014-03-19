@@ -2,8 +2,8 @@
 <h2 align="center">Edit user</h1>
 <div class="form-group formwidth">
       <%#= form_for(@user) do |f| %>
-      <%= form_for @user , :controller => "users", :action => "edit" do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+      <%= form_for @user , url: admin_path do |f| %>
+      <%#= render 'shared/error_messages', object: f.object %>
 
        <div class="form-group">
         <%= f.label :name %>
@@ -23,10 +23,14 @@
       <div class="form-group">
         <%= f.label :password %>
         <%= f.password_field :password %>
+        <% @user.errors[:password].each do |msg| %>
+        <li><%= msg %></li>
+        <% end unless @user.errors[:password].blank? %>
+
       </div>
 
        <div class="form-group">
-        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation %>
       </div>
 
@@ -35,7 +39,8 @@
         <%= f.text_field :email %>
       </div>
       
-      <%= f.submit "Submit Edit", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Submit Edit", class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;
+      <%= link_to "Cancel", admin_users_path, class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

@@ -1,8 +1,8 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, 'Create New User') %>
 
 <div class="container containerwidth" style="background-color:#ffffff;border:1px solid #dedede;box-shadow:2px 2px 2px 2px #dedede;">
   <h2 align="center">Create new user</h2>
-  <div class="form-horizontal">
+  <div class="form-group formwidth">
     
   <%= form_for @user , url:admin_index_path do |f| %>
     <%#= render 'shared/error_messages', object: f.object %>
@@ -27,7 +27,7 @@
     <div class="form-group">
       <%= f.label :category , class: "col-sm-2" %>
       <div class="col-sm-10">
-        <%= f.collection_select(:category, Category.all, :id, :category_name ) %>
+        <%= f.collection_select(:category, Category.where(:parent=>'root'), :id, :category_name ) %>
       </div>
     </div>
 
@@ -61,8 +61,8 @@
         <% end unless @user.errors[:email].blank? %>
     </div></div>
 
-      <%= f.submit "Add User", class: "btn btn-large btn-primary" %>
-
-  <% end %>
+      <%= f.submit "Add User", class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;
+      <%= link_to "Cancel", admin_users_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
