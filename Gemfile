@@ -7,8 +7,8 @@ gem 'rails', '4.0.0'
 
 gem 'bootstrap-sass'
 gem "default_value_for", "~> 3.0.0"
-
-
+gem 'pg'
+#gem 'sqlite3'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -34,13 +34,17 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :production do
-  gem 'pg', '0.15.1'
+   #gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :developmnet do
+  # gem 'sqlite3'
 end
 
 # Use ActiveModel has_secure_password
