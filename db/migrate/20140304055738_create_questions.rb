@@ -5,7 +5,8 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :subcategory_id
       t.integer :question_level
       t.string :question
-
+      t.string :option1
+      t.string :answer1  
       t.timestamps
     end
   end
