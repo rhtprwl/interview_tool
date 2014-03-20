@@ -16,7 +16,9 @@
       <%=f.text_field :category_name %>
            </div>
             <div class="form-group">
-      <%= f.submit "Edit", class: "btn btn-large btn-primary" %>
+
+      <%= f.submit "Edit", class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;
+      <%= link_to "Cancel", admin_categories_path, class: "btn btn-primary" %>
     <% end %>
     </div>
     </div>

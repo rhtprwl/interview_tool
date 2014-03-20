@@ -6,6 +6,7 @@
 <div class="form-group formwidth">
   
      <%= form_for @question, as: :question, url: admin_categories_question_new_path do |f| %>
+
       <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
          <%= f.label :Category_name%>
@@ -27,7 +28,6 @@
         <%=f.text_area :question %>
       </div>
 
-     
     <div id='TextBoxesGroup'>
       <div id="TextBoxDiv1">
         <%#= label_tag(:q, "option #1 :") %>
@@ -45,9 +45,6 @@
     <%= button_tag "Add More Options", :id => "addButton", :type => "button" %>
     <%= button_tag "Remove", :id => "removeButton", :type => "button" %>
 
-    
-   
-    
          <%= f.submit "Add", class: "btn btn-large btn-primary" %>
          <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" %>
      <% end %>

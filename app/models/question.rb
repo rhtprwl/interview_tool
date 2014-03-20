@@ -5,4 +5,5 @@ class Question < ActiveRecord::Base
  validates :question, presence: true
 
  validates :answer1, presence: true 
+
 end

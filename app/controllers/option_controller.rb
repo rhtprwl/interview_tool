@@ -1,5 +1,7 @@
 class OptionController < ApplicationController
 	
+	def new
+	end
 	def create
          @option =Option.new(user_params)
         logger.debug user_params
