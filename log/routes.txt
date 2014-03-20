@@ -12,4 +12,4 @@
     8) /admin/categories                    -       list of all categories and its subcategories
     9) /admin/categories/new                -       form for add new category
 
-	10) /admin/categories/:id/questions/new
+	10) /admin/categories/question/new      -       form for adding new question to any category  

@@ -44,8 +44,10 @@ class CategoryController < ApplicationController
   def update
        @category = Category.find(params[:id])
        @sub = Category.where(:parent =>@category.category_name)
-       @sub.each do |u| 
-       logger.debug u.parent
+       @sub.each do |u|
+       logger.debug  params["category"]["parent"]
+        
+       u.parent=params["category"]["parent"]
        end
        if @category.update_attributes(user_params)
            if @category.parent=="" ||  @category.parent=="root"

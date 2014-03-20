@@ -8,16 +8,28 @@ class QuestionController < ApplicationController
 
    def create
         logger.debug "Creating11111111111111111111111111111111....."
-        @question = Question.new(user_params)   
-        logger.debug "Creating Questions....."
-        logger.debug user_params
-        logger.debug "params of adding_questions"
+        logger.debug params
+        #logger.debug params["question"]["option#{}"]
+        logger.debug params["question"][:option1]
+        @question = Question.new(question_params)   
+        logger.debug params
+        
         if @question.save
-           logger.debug "question added"
-           flash[:success] = "new question added"
-           redirect_to question_path($foo.id)
-          else
-          render 'new'
+            (1..10).each do |i|
+              #@option = Option.new(:question_id => @question.id, :option => params["question"]["option1"])
+                unless params["question"]["option#{i}"].nil?
+                  logger.debug i
+                  logger.debug params["question"]["answer#{i}"]
+                  @option = Option.new(:question_id => @question.id, :option => params["question"]["option#{i}"],:answer => params["question"]["answer#{i}"])
+                  @option.save
+                end
+            end
+            #flash[:success] = "new question added"
+                if @option.save
+                    redirect_to question_path($foo.id)
+                else
+                    render 'new'
+                end
         end
     end
   
@@ -55,8 +67,12 @@ class QuestionController < ApplicationController
 
  private
 
-  def user_params
-       params.require(:question).permit(:category, :subcategory_id, :question_level, :question, :option1, :option2, :option3, :option4, :answer)
+    def question_params
+       params.require(:question).permit(:category, :subcategory_id, :question_level, :question,:answer1,:option1)
+    end
+
+    def option_params
+      params.require(:option).permit(:category_id, :option1)
     end
 
      def require_login
