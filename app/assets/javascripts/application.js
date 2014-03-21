@@ -15,35 +15,40 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+/*
+function validate()
+{
 
+  var user=document.login_form.session_name.value;
+  var pass=document.login_form.session_password.value;
+   
+ if(user=="" && pass=="") 
+  {
+     
+     document.getElementById("error1").innerHTML="*UserName is mandatory"
+     document.getElementById("error2").innerHTML="*Password is mandatory"
+     return false;  
+  }  
+    else if(user=="") 
+  {
+     
+     document.getElementById("error1").innerHTML="*UserName is mandatory"
+     return false;  
+  }  
+  else if(pass=="") 
+  {
+     
+     document.getElementById("error2").innerHTML="*Password is mandatory"
+     return false;  
+  }  
+  else   {
+    return true;
+  }
+}  
 
-  // function addFields(){
-  //           // Number of inputs to create
-  //           var number = document.getElementById("option").value;
-  //           // Container <div> where dynamic content will be placed
-  //           var container = document.getElementById("container");
-  //           // Clear previous contents of the container
-  //           while (container.hasChildNodes()) {
-  //               container.removeChild(container.lastChild);
-  //           }
-            
-  //           for (i=0;i<number;i++)
-  //           {
-  //               // Append a node with a random text
-  //               container.appendChild(document.createTextNode("Option " + (i+5)));
-  //               // Create an <input> element, set its type and name attributes
-  //               var input = document.createElement("input");
-  //               input.type = "text";
-  //               i=i+5;
-  //               input.name = "question[option" + i+"]";
-  //               container.appendChild(input);
-  //               // Append a line break 
-  //               i=i-5;
-  //               container.appendChild(document.createElement("br"));
-  //           }
-  //       }
+  */
 
-
+  
   $(document).ready(function(){
     
     var counter = 2;

@@ -1,7 +1,7 @@
 <div style="float:right;margin-right:30px;">
 
 
-	<%= link_to "Add New Question", admin_categories_question_new_path , :class => 'btn btn-success btn-lg'%>
+	<%= link_to "Add New Question", admin_categories_question_new_path , :class => 'btn btn-success btn-lg' ,"data-no-turbolink" => true%>
 
 </div>
 <br/>
@@ -23,7 +23,7 @@
 		<td><%=c.question_level%></td>
 		
 		<td >
-    	<%= link_to 'Edit', edit_question_path(c) , :class => 'btn btn-success btn-lg' %> &nbsp;&nbsp;&nbsp;
+    	<%= link_to 'Edit', edit_question_path(c) , :class => 'btn btn-success btn-lg'  ,"data-no-turbolink" => true%> &nbsp;&nbsp;&nbsp;
 	    <%= link_to 'Delete', question_path(c),:class => 'btn btn-danger btn-lg',
                     method: :delete, data: { confirm: 'Are you sure?' } %> 
        

@@ -22,7 +22,7 @@ class AdminController < ApplicationController
        logger.debug user_params   
        if @user.save
         flash[:success] = "New User Successfully Added!!!"
-        redirect_to admin_dashboard_path
+        redirect_to admin_users_path
        else
         logger.debug "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
         render 'users_new'
@@ -32,9 +32,13 @@ class AdminController < ApplicationController
      def update
        logger.debug "in Update function"
        @user = User.find(params[:id])
-       if @user.update_attributes(user_params)
+       @user.name=params["user"]["name"]
+       @user.email=params["user"]["email"]
+       @user.role=params["user"]["role"]
+       @user.category=params["user"]["category"]
+       if @user.save
         flash[:success] = "Profile updated"
-        #redirect_to root_path
+        redirect_to admin_users_path
 
        else
          render 'edit'
@@ -56,7 +60,7 @@ class AdminController < ApplicationController
      def user_params
   	   params.require(:user).permit(:name, :role, :category, :email,:password,:password_confirmation)
      end
-   
+     
      def require_login
       unless signed_in?
         flash[:error] = "You must be logged in to access this section"
