@@ -1,6 +1,6 @@
 <% provide(:title, 'Add Questions') %>
  
-<div class="container containerwidth" style="background-color:#ffffff;border:1px solid #dedede;box-shadow:2px 2px 2px 2px #dedede;">
+<div class="container" style="background-color:#ffffff;border:1px solid #dedede;box-shadow:2px 2px 2px 2px #dedede;">
 
 <h1 align="center">Add Question</h1>
 <div class="form-group formwidth">
@@ -45,7 +45,9 @@
     <%= button_tag "Add More Options", :id => "addButton", :type => "button" %>
     <%= button_tag "Remove", :id => "removeButton", :type => "button" %>
 
+    <div class="col-sm-offset-4 col-sm-8">
          <%= f.submit "Add", class: "btn btn-large btn-primary" %>
          <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" %>
+         </div>
      <% end %>
 </div>

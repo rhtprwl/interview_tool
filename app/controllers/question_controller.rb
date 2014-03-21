@@ -6,7 +6,7 @@ class QuestionController < ApplicationController
 
 	 end
 
-   def create
+  def create
         logger.debug "Creating11111111111111111111111111111111....."
         logger.debug params
         #logger.debug params["question"]["option#{}"]
@@ -37,15 +37,30 @@ class QuestionController < ApplicationController
       @question=Question.find(params[:id])
     end
     
-    def update 
+   def update 
       @question =Question.find(params[:id])
-       if @question.update_attributes(user_params)
-        flash[:success] = "question updated"
-        redirect_to question_path($foo.id)
-
-       else
-         render 'edit'
+      
+      @opt=Option.where(:question_id => params[:id])
+       @opt.each do |u|
+          u.destroy
        end
+
+       if @question.update_attributes(question_params)
+
+                (1..10).each do |i|
+                unless params["question"]["option#{i}"].nil?
+                  logger.debug i
+                  @option = Option.new(:question_id => @question.id, :option => params["question"]["option#{i}"])
+                  @option.save
+                end
+            end
+            #flash[:success] = "new question added"
+                if @option.save
+                    redirect_to question_path($foo.id)
+                else
+                    render 'new'
+                end
+        end
     end
     
     def destroy
