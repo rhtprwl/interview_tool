@@ -6,6 +6,7 @@
 
 <h1 align="center">User List</h1>
 <div class="table-responsive">
+<%= will_paginate %>
   <table class="table table-bordered table table-hover table table-striped tablewidth">
 
 <tr>
@@ -13,7 +14,7 @@
 <th>User Name</th>
 <th>Role</th>
 <th colspan="2">Action</th>
- <% @user.each do |u| %>
+ <% @admin.each do |u| %>
  <%if u.role=='sadmin'%>
  <%else%>
 <tr>
@@ -31,4 +32,5 @@
 <%end%>
 <%end%>
 </table>
+<%= will_paginate %>
 </div>

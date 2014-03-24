@@ -46,7 +46,7 @@ class AdminController < ApplicationController
      end
   
      def users
-       @user=User.all
+       @admin=User.paginate(page: params[:page],:per_page => 10)
      end
   
      def destroy

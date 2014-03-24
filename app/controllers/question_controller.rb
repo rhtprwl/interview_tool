@@ -34,6 +34,7 @@ class QuestionController < ApplicationController
     end
   
     def edit
+      @opt=Option.where(:question_id => params[:id])
       @question=Question.find(params[:id])
     end
     
@@ -75,8 +76,8 @@ class QuestionController < ApplicationController
        logger.debug "________________________________________________________"
        logger.debug $foo
        logger.debug "________________________________________________________"
-       
-       @question=Question.where(:subcategory_id => params[:id])
+       @question=Question.paginate.where(:subcategory_id => params[:id])
+       #@question=Question.where(:subcategory_id => params[:id])
     end
 
 
