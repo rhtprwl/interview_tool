@@ -25,11 +25,11 @@ class QuestionController < ApplicationController
                 end
             end
             #flash[:success] = "new question added"
-                if @option.save
+                #if @option.save
                     redirect_to question_path($foo.id)
                 else
                     render 'new'
-                end
+                #end
         end
     end
   
@@ -76,15 +76,15 @@ class QuestionController < ApplicationController
        logger.debug "________________________________________________________"
        logger.debug $foo
        logger.debug "________________________________________________________"
-       @question=Question.paginate.where(:subcategory_id => params[:id])
-       #@question=Question.where(:subcategory_id => params[:id])
+       #@question=Question.paginate.where(:subcategory_id => params[:id])
+       @question=Question.where(:subcategory_id => params[:id])
     end
 
 
  private
 
     def question_params
-       params.require(:question).permit(:category, :subcategory_id, :question_level, :question,:answer1,:option1)
+       params.require(:question).permit(:category, :subcategory_id, :question_level, :question,:answer1,:option1,:answer2,:option2,:answer3,:option3,:answer4,:option4)
     end
 
     def option_params

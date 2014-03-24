@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320074922) do
+ActiveRecord::Schema.define(version: 20140324100759) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: true do |t|
     t.string   "category_name"
@@ -19,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140320074922) do
     t.datetime "updated_at"
     t.string   "parent"
   end
+
+  add_index "categories", ["category_name"], name: "index_categories_on_category_name", unique: true, using: :btree
 
   create_table "options", force: true do |t|
     t.integer  "question_id"
@@ -29,25 +34,21 @@ ActiveRecord::Schema.define(version: 20140320074922) do
   end
 
   create_table "questions", force: true do |t|
-    t.string   "answer1"
-    t.string   "option1"
     t.string   "category"
     t.integer  "subcategory_id"
     t.integer  "question_level"
     t.string   "question"
+    t.string   "option1"
+    t.string   "answer1"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "option2"
+    t.string   "option3"
+    t.string   "option4"
+    t.string   "answer2"
+    t.string   "answer3"
+    t.string   "answer4"
   end
-
-  create_table "subcategories", force: true do |t|
-    t.integer  "category_id"
-    t.string   "subcategory_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "parent"
-  end
-
-  add_index "subcategories", ["subcategory_name"], name: "index_subcategories_on_subcategory_name", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"

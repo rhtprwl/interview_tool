@@ -51,7 +51,7 @@ function validate()
   
   $(document).ready(function(){
     
-    var counter = 2;
+    var counter = 5;
  
     $("#addButton").click(function () {
  
@@ -75,7 +75,7 @@ function validate()
      });
  
      $("#removeButton").click(function () {
-  if(counter==1){
+  if(counter==4){
           alert("No more option field to remove");
           return false;
        }   
