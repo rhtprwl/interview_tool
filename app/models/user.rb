@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
 
+  searchable do
+    text :name , :role
+  end
+
   default_value_for :role, "user"
   default_value_for :category, 0
 
