@@ -6,7 +6,7 @@
 <div class="form-group formwidth">
   
      <%= form_for @question ,:controller => "question", :action => "edit"  do |f| %>
-   <%= render 'shared/error_messages', object: f.object %>
+       <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
          <%= f.label :Category_name%>
          <%= f.collection_select(:category, Category.where(:id=>$foo.id), :parent, :parent , class: "form-control") %>
@@ -19,25 +19,32 @@
        
       <div class="form-group">
         <%=f.label :Select_Question_Level%>
-        <%= f.select(:question_level, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5], ['6',6]])) %>
+        <%= f.select(:question_level, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5], ['6',6]] ,:selected => @question.question_level)) %>
       </div>
       
       <div class="form-group" >
         <%=f.label :Add_Question %>
         <%=f.text_area :question %>
-      </div>
+             </div>
+              <div id="error"></div>
+   
+          <% i=1 %>   
+        <% @opt.each_with_index do |c, index| %>    
+     <div class="form-group" >
+      <% i=i+1 %>
+        <%= label_tag(:q, "option#{index+1}") %>
+        <%#=f.label :option1 %>
+        <%= text_field_tag(:"option#{index+1}" , '',:id =>"option'#{index+1}",:value => c.option)%>
+        <%#=f.text_field :option1 %>
+        <%= check_box("answer","#{index+1}",:value => c.answer,:checked =>'true')%>
+        <%#= f.check_box :answer1 %>
+</div>
 
-    <div id='TextBoxesGroup' >
+ <%end%>
+   <div id='TextBoxesGroup' >
       <div id="TextBoxDiv1">
-        <%#= label_tag(:q, "option #1 :") %>
-        <%=f.label :option1 %>
-        <%#= text_field_tag(:q , '',:id =>'option1')%>
-        <%=f.text_field :option1 %>
-        <%= f.check_box :answer1 %>
-
       </div>
-    </div>
-
+      </div>
     <!-- <input type='button' value='Add More Options' id='addButton'><br/> -->
     <!-- <input type='button' value='Remove' id='removeButton'><br/> -->
 
@@ -45,9 +52,8 @@
     <%= button_tag "Remove", :id => "removeButton", :type => "button" %>
 
     <div class="col-sm-offset-4 col-sm-8">
-         <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+         <%= f.submit "Edit",   :onclick => 'return checking()' ,class: "btn btn-large btn-primary" %>
          <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" %>
          </div>
      <% end %>
 </div>
-

@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 20140320074922) do
   end
 
   create_table "questions", force: true do |t|
-    t.string   "answer1"
-    t.string   "option1"
     t.string   "category"
     t.integer  "subcategory_id"
     t.integer  "question_level"

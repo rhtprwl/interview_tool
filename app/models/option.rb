@@ -1,3 +1,6 @@
 class Option < ActiveRecord::Base
-	belongs_to :question
+     belongs_to :question 
+logger.debug "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+     validates :option, presence: true
+     logger.debug "ppppppppppppppppppppppppppppppppppppppp"
 end

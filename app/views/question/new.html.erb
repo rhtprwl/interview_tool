@@ -5,7 +5,7 @@
 <h1 align="center">Add Question</h1>
 <div class="form-group formwidth">
   
-     <%= form_for @question, as: :question, url: admin_categories_question_new_path do |f| %>
+     <%= form_for @question, as: :question, url: admin_categories_question_new_path, html: { name: "go" } do |f| %>
 
       <%= render 'shared/error_messages', object: f.object %>
        <div class="form-group">
@@ -26,15 +26,41 @@
       <div class="form-group" >
         <%=f.label :Add_Question %>
         <%=f.text_area :question %>
-      </div>
-
-    <div id='TextBoxesGroup' >
+             </div>
+      <div id="error" style="color:red;margin-left:20px;"></div>
+   <div class="form-group" >
+      
+        <%= label_tag(:q, "option 1 :") %>
+        <%#=f.label :option1 %>
+        <%= text_field_tag(:option1 , '',:id =>'option1')%>
+        <%#=f.text_field :option1 %>
+        <%= check_box("answer","1")%>
+        <%#= f.check_box :answer1 %>
+</div>
+ <div class="form-group" >
+        <%= label_tag(:q, "option 2 :") %>
+        <%#=f.label :option1 %>
+        <%= text_field_tag(:option2 , '',:id =>'option2')%>
+        <%#=f.text_field :option1 %>
+        <%= check_box("answer","2")%>
+        <%#= f.check_box :answer1 %>
+</div>
+ <div class="form-group" >
+        <%= label_tag(:q, "option 3 :") %>
+        <%#=f.label :option1 %>
+        <%= text_field_tag(:option3 , '',:id =>'option3')%>
+        <%= check_box("answer","3")%>
+        <%#=f.text_field :option1 %>
+        <%#= f.check_box :answer1 %>
+</div>
+  <div id='TextBoxesGroup' >
       <div id="TextBoxDiv1">
-        <%#= label_tag(:q, "option #1 :") %>
-        <%=f.label :option1 %>
-        <%#= text_field_tag(:q , '',:id =>'option1')%>
-        <%=f.text_field :option1 %>
-        <%= f.check_box :answer1 %>
+        <%= label_tag(:q, "option 4 :") %>
+        <%#=f.label :option1 %>
+        <%= text_field_tag(:option4 , '',:id =>'option4')%>
+        <%= check_box("answer","4")%>
+        <%#=f.text_field :option1 %>
+        <%#= f.check_box :answer1 %>
 
       </div>
     </div>
@@ -46,7 +72,7 @@
     <%= button_tag "Remove", :id => "removeButton", :type => "button" %>
 
     <div class="col-sm-offset-4 col-sm-8">
-         <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+         <%= f.submit "Add",   :onclick => 'return checking()' ,class: "btn btn-large btn-primary" %>
          <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" %>
          </div>
      <% end %>

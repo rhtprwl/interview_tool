@@ -8,59 +8,65 @@ class QuestionController < ApplicationController
 
   def create
         logger.debug "Creating11111111111111111111111111111111....."
-        logger.debug params
+        
         #logger.debug params["question"]["option#{}"]
-        logger.debug params["question"][:option1]
+        logger.debug params
         @question = Question.new(question_params)   
         logger.debug params
-        
         if @question.save
+          
             (1..10).each do |i|
               #@option = Option.new(:question_id => @question.id, :option => params["question"]["option1"])
-                unless params["question"]["option#{i}"].nil?
+                unless params["option#{i}"].nil?
                   logger.debug i
-                  logger.debug params["question"]["answer#{i}"]
-                  @option = Option.new(:question_id => @question.id, :option => params["question"]["option#{i}"],:answer => params["question"]["answer#{i}"])
+                  logger.debug params["answer"]["#{i}]"]
+                  @option = Option.new(:question_id => @question.id, :option => params["option#{i}"],:answer => params["answer"]["#{i}"])
                   @option.save
                 end
             end
             #flash[:success] = "new question added"
-                if @option.save
+                if @option.save && @question.save
+         
                     redirect_to question_path($foo.id)
-                else
-                    render 'new'
+                    else
+               render 'new'
                 end
+        
         end
     end
   
     def edit
+      @opt=Option.where(:question_id => params[:id])
       @question=Question.find(params[:id])
     end
     
    def update 
       @question =Question.find(params[:id])
-      
+       @question.update_attributes(question_params)
       @opt=Option.where(:question_id => params[:id])
+      
        @opt.each do |u|
           u.destroy
        end
 
-       if @question.update_attributes(question_params)
-
+      
                 (1..10).each do |i|
-                unless params["question"]["option#{i}"].nil?
+              #@option = Option.new(:question_id => @question.id, :option => params["question"]["option1"])
+                unless params["option#{i}"].nil?
                   logger.debug i
-                  @option = Option.new(:question_id => @question.id, :option => params["question"]["option#{i}"])
+                  logger.debug params["answer"]["#{i}]"]
+                  @option = Option.new(:question_id => @question.id, :option => params["option#{i}"],:answer => params["answer"]["#{i}"])
                   @option.save
                 end
-            end
+              end 
+            
             #flash[:success] = "new question added"
                 if @option.save
                     redirect_to question_path($foo.id)
                 else
-                    render 'new'
+                    render 'edit'
                 end
-        end
+        
     end
     
     def destroy
@@ -83,7 +89,7 @@ class QuestionController < ApplicationController
  private
 
     def question_params
-       params.require(:question).permit(:category, :subcategory_id, :question_level, :question,:answer1,:option1)
+       params.require(:question).permit(:category, :subcategory_id, :question_level, :question)
     end
 
     def option_params
