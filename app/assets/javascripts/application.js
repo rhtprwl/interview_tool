@@ -129,12 +129,14 @@ function checking()
   return true;
 }
   
+
+
   $(document).ready(function(){
     
-    var counter = 5;
- 
+    var counter=0;
     $("#addButton").click(function () {
- 
+   counter = document.getElementById("name").value;
+   alert(counter);
   if(counter>10){
             alert("Only 10 textboxes allow");
             return false;
@@ -142,7 +144,7 @@ function checking()
  
   var newTextBoxDiv = $(document.createElement('div'))
        .attr("id", 'TextBoxDiv' + counter);
- 
+ document.getElementById("name").value++;
   newTextBoxDiv.after().html('<label>Option'+ counter + '</label>' +
         '<input type="text" name="option' + counter +
         '" id="question_option' + counter + '" value="" >' +'<input type="checkbox" name="answer[' + counter +']'+ 
@@ -155,11 +157,13 @@ function checking()
      });
  
      $("#removeButton").click(function () {
-  if(counter==1){
+      counter = document.getElementById("name").value;
+
+  if(counter==5){
           alert("No more option field to remove");
           return false;
        }   
- 
+  document.getElementById("name").value--;
   counter--;
  
         $("#TextBoxDiv" + counter).remove();
