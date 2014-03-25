@@ -28,7 +28,7 @@ class CategoryController < ApplicationController
   end
   
   def show
-       @category=Category.all
+       @category=Category.paginate(page: params[:page],:per_page => 10)
   end
 
   def destroy
