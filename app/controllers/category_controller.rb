@@ -28,12 +28,9 @@ class CategoryController < ApplicationController
   end
   
   def show
-     #  @category=Category.paginate(page: params[:page],:per_page => 10).order(params[:sort])
- if params[:search] 
- @category=Category.where(:category_name => params[:search]).paginate(page: params[:page]).order(params[:sort])
- else
-  @category=Category.paginate(page: params[:page]).order(params[:sort])
-  end
+       @category=Category.all
+ 
+
 
   end
 

@@ -185,3 +185,10 @@ $("#TextBoxDivs" + counter).remove();
 });
 
 });
+
+
+
+$(document).ready( function () {
+  $('#users').dataTable();
+  $('#category').dataTable();
+});

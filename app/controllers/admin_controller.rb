@@ -54,12 +54,8 @@ def update
 end
 
 def users
- #@admin=User.paginate(page: params[:page],:per_page => 2)
- if params[:search] 
-   @admin=User.where(:name => params[:search]).paginate(page: params[:page]).order(params[:sort])
- else
-  @admin=User.paginate(page: params[:page]).order(params[:sort])
-end
+ @admin=User.all
+ 
 end
 
 def destroy
