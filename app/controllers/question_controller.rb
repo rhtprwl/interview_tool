@@ -19,7 +19,7 @@ class QuestionController < ApplicationController
               #@option = Option.new(:question_id => @question.id, :option => params["question"]["option1"])
                 unless params["option#{i}"].nil?
                   logger.debug i
-                  logger.debug params["answer"]["#{i}]"]
+                  logger.debug params["answer"]["#{i}"]
                   @option = Option.new(:question_id => @question.id, :option => params["option#{i}"],:answer => params["answer"]["#{i}"])
                   @option.save
                 end
@@ -54,7 +54,7 @@ class QuestionController < ApplicationController
               #@option = Option.new(:question_id => @question.id, :option => params["question"]["option1"])
                 unless params["option#{i}"].nil?
                   logger.debug i
-                  logger.debug params["answer"]["#{i}]"]
+                  logger.debug params["answer"]["#{i}"]
                   @option = Option.new(:question_id => @question.id, :option => params["option#{i}"],:answer => params["answer"]["#{i}"])
                   @option.save
                 end

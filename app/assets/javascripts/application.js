@@ -136,7 +136,7 @@ function checking()
     var counter=0;
     $("#addButton").click(function () {
    counter = document.getElementById("name").value;
-   alert(counter);
+ //  alert(counter);
   if(counter>10){
             alert("Only 10 textboxes allow");
             return false;
