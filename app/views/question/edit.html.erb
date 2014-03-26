@@ -30,13 +30,13 @@
 
     <% i=1 %>   
     <% @opt.each_with_index do |c, index| %>    
-     <div class="form-group" >
+     <div class="form-group" id="TextBoxDivs<%=index+1%>">
         <% i=i+1 %>
       <%= label_tag(:q, "option#{index+1}") %>
       <%#=f.label :option1 %>
       <%= text_field_tag(:"option#{index+1}" , '',:id =>"option'#{index+1}",:value => c.option)%>
       <%#=f.text_field :option1 %>
-      <%= check_box_tag("answer[#{index+1}]", 1,c.answer)%>
+      <%= check_box_tag("answer[#{index+1}]", '1',c.answer)%>
      
       <%#= f.check_box :answer1 %>
     </div>

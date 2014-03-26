@@ -3,7 +3,14 @@
 <%= link_to 'Add new user', admin_users_new_path , :class => 'btn btn-success btn-lg'%>
 <% end %>
 </div>
-
+<div style="float:left;margin-left:30px;">
+        <%= form_tag admin_users_path, :method => :get do %>
+        <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil,:class => 'btn btn-success btn-lg' %>
+        </p>
+        <% end %>
+    </div>
 <h1 align="center">User List</h1>
 <div class="table-responsive">
 <%= will_paginate %>
@@ -11,8 +18,8 @@
 
 <tr>
 
-<th>User Name</th>
-<th>Role</th>
+<th><%= link_to 'Name', :sort=>"name"%></th>
+<th><%= link_to 'Role', :sort=>"role"%></th>
 <th colspan="2">Action</th>
  <% @admin.each do |u| %>
  <%if u.role=='sadmin'%>

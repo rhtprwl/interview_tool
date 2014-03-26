@@ -2,30 +2,27 @@
 <div class="container containerwidth" style="background-color:#ffffff;border:1px solid #dedede;box-shadow:2px 2px 2px 2px #dedede;">
     <h1 align="center">Sign in</h1>
 
-      <%= form_for(:session, url: session_index_path) do |f| %>
-        
+      <%= form_for(:session, url: session_index_path ,html: { name: "login_form" }) do |f| %>
+        <div id="error3"  style="color:red;" class="form-group formwidth">
+              </div>
           <div class="form-group formwidth">
               <%= f.label :Username %>
               <%= f.text_field :name , class: "form-control" ,:placeholder => "Enter Username"%>
           </div>
-         <div id="error1" class="form-group formwidth">
+         <div id="error1"  style="color:red;" class="form-group formwidth">
                  </div>
               
          <div class="form-group formwidth">
             <%= f.label :password %>
             <%= f.password_field :password , class: "form-control",:placeholder => "Enter password"%>
          </div>
-          <div id="error2" class="form-group formwidth">
+          <div id="error2"  style="color:red;" class="form-group formwidth">
               </div>
         <div class="form-group formwidth">
-            <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+            <%= f.submit "Sign in", :onclick => 'return validate()', class: "btn btn-large btn-primary" %>
         </div>
+        
       <% end %>
 </div>
     
  
-<div align="center">
- <% flash.each do |name, message| %>
-        <%= content_tag :div, message, id: "error_explanation_#{name}"  %>
- <% end %>
-</div>

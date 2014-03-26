@@ -32,21 +32,34 @@ end
 def update
  logger.debug "in Update function"
  @user = User.find(params[:id])
- @user.name=params["user"]["name"]
- @user.email=params["user"]["email"]
- @user.role=params["user"]["role"]
- @user.category=params["user"]["category"]
- if @user.save
-  flash[:success] = "Profile updated"
-  redirect_to admin_users_path
+ 
+ if params["user"]["password"]==""
+   @user.name=params["user"]["name"]
+   @user.email=params["user"]["email"]
+   @user.role=params["user"]["role"]
+   @user.category=params["user"]["category"]
+   @user.save
+ else
+   @user.destroy
+   @user = User.new(user_params)
+   @user.save 
+      end
+   if @user.save
+    flash[:success] = "Profile updated"
+    redirect_to admin_users_path
 
-else
- render 'edit'
-end
+  else
+   render 'edit'
+ end
 end
 
 def users
- @admin=User.paginate(page: params[:page],:per_page => 2)
+ #@admin=User.paginate(page: params[:page],:per_page => 2)
+ if params[:search] 
+   @admin=User.where(:name => params[:search]).paginate(page: params[:page]).order(params[:sort])
+ else
+  @admin=User.paginate(page: params[:page]).order(params[:sort])
+end
 end
 
 def destroy
