@@ -70,6 +70,12 @@ function checking()
     return true;
    
 } */
+var opt11=document.go.quest.value; 
+if(opt11=="")
+{
+  document.getElementById("error").innerHTML="** Question can't be blank**"
+  return false;
+}
 var opt1=document.go.option1.value; 
 if(opt1=="")
 {

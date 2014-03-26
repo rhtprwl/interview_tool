@@ -60,7 +60,8 @@
         <% end unless @user.errors[:email].blank? %>
     </div></div>
 
-      <%= f.submit "Add User", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Add User", class: "btn btn-primary" %>
+       <%= link_to "Cancel", admin_users_path, class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
