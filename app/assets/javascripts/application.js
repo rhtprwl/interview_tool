@@ -70,22 +70,22 @@ function checking()
     return true;
    
 } */
-var ans1=document.go.answer_1.value; 
-var ans2=document.go.answer_2.value; 
-var ans3=document.go.answer_3.value; 
-var ans4=document.go.answer_4.value; 
-var ans5=document.go.answer_5.value; 
-var ans6=document.go.answer_6.value; 
-var ans7=document.go.answer_7.value; 
-var ans8=document.go.answer_8.value; 
-var ans9=document.go.answer_9.value; 
-var ans10=document.go.answer_10.value;
-if(ans1=="1" || ans2=="" ||ans3=="" ||ans4=="" ||ans5=="" ||ans6=="" ||ans7=="" ||ans8=="" ||ans9=="" ||ans10=="" )
-{
-alert("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
-   document.getElementById("error").innerHTML="**Select Atleast one answer**"
-  return false;
-}
+// var ans1=document.go.answer_1.value; 
+// var ans2=document.go.answer_2.value; 
+// var ans3=document.go.answer_3.value; 
+// var ans4=document.go.answer_4.value; 
+// var ans5=document.go.answer_5.value; 
+// var ans6=document.go.answer_6.value; 
+// var ans7=document.go.answer_7.value; 
+// var ans8=document.go.answer_8.value; 
+// var ans9=document.go.answer_9.value; 
+// var ans10=document.go.answer_10.value;
+// if(ans1=="1" || ans2=="" ||ans3=="" ||ans4=="" ||ans5=="" ||ans6=="" ||ans7=="" ||ans8=="" ||ans9=="" ||ans10=="" )
+// {
+// alert("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
+//    document.getElementById("error").innerHTML="**Select Atleast one answer**"
+//   return false;
+// }
 
 
 var opt11=document.go.quest.value; 
