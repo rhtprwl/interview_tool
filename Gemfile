@@ -8,7 +8,7 @@ gem 'rails', '4.0.0'
 gem 'bootstrap-sass'
 gem "default_value_for", "~> 3.0.0"
 gem 'pg'
-#gem 'sqlite3'
+gem 'sqlite3'
 gem 'will_paginate', '3.0.5'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bcrypt-ruby', '~> 3.0.0'

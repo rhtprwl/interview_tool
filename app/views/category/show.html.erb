@@ -1,41 +1,40 @@
 <div style="float:right;margin-right:30px;">
-	<%= link_to "Add New Category", admin_categories_new_path , :class => 'btn btn-success btn-lg'%>
+    <%= link_to "Add New Category", admin_categories_new_path , :class => 'btn btn-success btn-lg'%>
 </div>
-
-
+<br/>
+<div class="container">
 <h1 align="center">Category List</h1>
-<div class="table-responsive">
-	<%#= will_paginate %>
-  <table class="table table-bordered table table-hover table table-striped tablewidth" id="category">
-	<thead>
-	<tr>
-		<th>Category Id</th>
-		<th>Category Name</th>
-		<th>Parent</th>
-		<th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
- 		<% @category.each do |c| %>
- 	<tr>
-		<td><%=c.id%></td>
-		<td><%=c.category_name%></td>
-		<td><%=c.parent%></td>
-		<td >
-    	<%= link_to 'Edit', edit_category_path(c) , :class => 'btn btn-success btn-lg' %> &nbsp;&nbsp;&nbsp;
-	    <%= link_to 'Delete', category_path(c),:class => 'btn btn-danger btn-lg',
+    <div class="table-responsive">
+    <%#= will_paginate %>
+      <table class="table table-bordered table-hover table-striped tablewidth" id="category">
+        <thead>
+            <tr>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Parent</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr><% @category.each do |c| %>
+                <td><%=c.id%></td>
+                <td><%=c.category_name%></td>
+                <td><%=c.parent%></td>
+                <td >
+                    <%= link_to 'Edit', edit_category_path(c) , :class => 'btn btn-success btn-lg' %> &nbsp;&nbsp;&nbsp;
+                    <%= link_to 'Delete', category_path(c),:class => 'btn btn-danger btn-lg',
                     method: :delete, data: { confirm: 'All its subcategories will be deleted.Do you want to continue?' } %> 
 
-         <%if c.parent=="root"%>
-         <%else%>
+                    <%if c.parent=="root"%>
+                    <%else%>
 
-        <%= link_to 'Manage Questions', question_path(c), :class => 'btn btn-success btn-lg' %>
-        
-</td>
-<%end%>
-	</tr></tbody>
-<%end%>
-</table>
-<%#= will_paginate %>
-</div>
+                    <%= link_to 'Manage Questions', question_path(c), :class => 'btn btn-success btn-lg' , "data-no-turbolink" => true %>
+                    <%end%>
+                </td>
+                
+            </tr><%end%>
+        </tbody>
+      </table>
+  </div>
 </div>
