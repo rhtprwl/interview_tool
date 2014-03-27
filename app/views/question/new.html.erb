@@ -34,38 +34,38 @@
     <%#=f.label :option1 %>
     <%= text_field_tag(:option1 , '',:id =>'option1')%>
     <%#=f.text_field :option1 %>
-    <%= check_box("answer","1")%>
+    <%= check_box_tag("answer[1]", '1')%>
     <%#= f.check_box :answer1 %>
   </div>
-   <% i=5 %> 
+  <% i=5 %> 
   <div class="form-group" >
     <%= label_tag(:q, "option 2 :") %>
     <%#=f.label :option1 %>
     <%= text_field_tag(:option2 , '',:id =>'option2')%>
     <%#=f.text_field :option1 %>
-    <%= check_box("answer","2")%>
+    <%= check_box_tag("answer[2]", '1')%>
     <%#= f.check_box :answer1 %>
   </div>
   <div class="form-group" >
     <%= label_tag(:q, "option 3 :") %>
     <%#=f.label :option1 %>
     <%= text_field_tag(:option3 , '',:id =>'option3')%>
-    <%= check_box("answer","3")%>
+    <%= check_box_tag("answer[3]", '1')%>
     <%#=f.text_field :option1 %>
     <%#= f.check_box :answer1 %>
   </div>
   <div id='TextBoxesGroup' >
-    <div id="TextBoxDiv1">
+  <div id="TextBoxDiv4">
       <%= label_tag(:q, "option 4 :") %>
       <%#=f.label :option1 %>
       <%= text_field_tag(:option4 , '',:id =>'option4')%>
-      <%= check_box("answer","4")%>
+      <%= check_box_tag("answer[4]", '1')%>
       <%#=f.text_field :option1 %>
       <%#= f.check_box :answer1 %>
 
     </div>
   </div>
- <%= hidden_field_tag("name", i)%>
+  <%= hidden_field_tag("name", i)%>
   <!-- <input type='button' value='Add More Options' id='addButton'><br/> -->
   <!-- <input type='button' value='Remove' id='removeButton'><br/> -->
 
@@ -74,7 +74,7 @@
 
   <div class="col-sm-offset-4 col-sm-8">
    <%= f.submit "Add",   :onclick => 'return checking()' ,class: "btn btn-large btn-primary" %>
-   <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" %>
+   <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" ,"data-no-turbolink" => true %>
  </div>
  <% end %>
 </div>
