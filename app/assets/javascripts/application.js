@@ -44,12 +44,7 @@ function validate()
    document.getElementById("error2").innerHTML="*Password is mandatory"
    return false;  
  }  
- else if(user!="sadmin" || pass!="sadmin") 
- {
-  //alert("SSSSSSSSSSSSSSSSSS")
-  document.getElementById("error3").innerHTML="*Invalid UserName or Password*"
-  return false;  
-}
+
 else
   {return true}
 }  
@@ -66,10 +61,36 @@ function checking()
     document.getElementById(p).innerHTML="field is manadatory"
     return false;
    }
-   else
+/*   else
     return true;
    
 } */
+$(document).ready( function () {
+  if( $('#answer_1').attr('checked')){
+      alert("you have to accept the terms first");
+    }
+ 
+});
+
+ 
+// var ans1=document.go.answer_1.value; alert(ans1);
+// var ans2=document.go.answer_2.value; alert(ans2);
+// var ans3=document.go.answer_3.value; 
+// var ans4=document.go.answer_4.value; 
+// var ans5=document.go.answer_5.value; 
+// var ans6=document.go.answer_6.value; 
+// var ans7=document.go.answer_7.value; 
+// var ans8=document.go.answer_8.value; 
+// var ans9=document.go.answer_9.value; 
+// var ans10=document.go.answer_10.value;
+// if(ans1=="1" || ans2=="" ||ans3=="" ||ans4=="" ||ans5=="" ||ans6=="" ||ans7=="" ||ans8=="" ||ans9=="" ||ans10=="" )
+// {
+// alert("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
+//    document.getElementById("error").innerHTML="**Select Atleast one answer**"
+//   return false;
+// }
+
+
 var opt11=document.go.quest.value; 
 if(opt11=="")
 {
@@ -140,6 +161,7 @@ if(opt10=="")
   return false;
 }
 
+
 return true;
 }
 
@@ -150,20 +172,23 @@ $(document).ready(function(){
   var counter=0;
   $("#addButton").click(function () {
    counter = document.getElementById("name").value;
- //  alert(counter);
+   //alert(counter);
  if(counter>10){
   alert("Only 10 textboxes allow");
   return false;
 }   
 
 var newTextBoxDiv = $(document.createElement('div'))
-.attr("id", 'TextBoxDiv' + counter);
+.attr("id", 'TextBoxDivs' + counter);
+
 document.getElementById("name").value++;
+
+
 newTextBoxDiv.after().html('<label>Option'+ counter + '</label>' +
   '<input type="text" name="option' + counter +
   '" id="question_option' + counter + '" value="" >' +'<input type="checkbox" name="answer[' + counter +']'+ 
-  '" id="question_answer' + counter + '" >');
-
+  '" id="answer_' + counter + '" >');
+  
 newTextBoxDiv.appendTo("#TextBoxesGroup");
 
 
@@ -191,4 +216,5 @@ $("#TextBoxDivs" + counter).remove();
 $(document).ready( function () {
   $('#users').dataTable();
   $('#category').dataTable();
+   $('#question').dataTable();
 });
