@@ -51,6 +51,7 @@
       <%= button_tag "Add More Options", :id => "addButton", :type => "button" %>
       <%= button_tag "Remove", :id => "removeButton", :type => "button" %>
 
+
       <div class="col-sm-offset-4 col-sm-8">
        <%= f.submit "Edit",   :onclick => 'return checking()' ,class: "btn btn-large btn-primary" %>
        <%= link_to "Cancel",  question_path($foo.id), class: "btn btn-large btn-primary" ,"data-no-turbolink" => true %>
