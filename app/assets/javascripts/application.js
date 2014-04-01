@@ -45,7 +45,7 @@ function validate()
    document.getElementById("error2").innerHTML="*Password is mandatory"
    return false;  
  }  
- 
+
 else
   {
     return true;
@@ -68,8 +68,6 @@ function checking()
     return true;
    
 } */
-// var ans1=document.go.answer_1.value; 
-// var ans2=document.go.answer_2.value; 
 // var ans3=document.go.answer_3.value; 
 // var ans4=document.go.answer_4.value; 
 // var ans5=document.go.answer_5.value; 
@@ -86,7 +84,7 @@ function checking()
 // }
 
 
-var opt11=document.go.quest.value; 
+var opt11=document.go.tinymce.value; 
 if(opt11=="")
 {
   document.getElementById("error").innerHTML="** Question can't be blank**"
