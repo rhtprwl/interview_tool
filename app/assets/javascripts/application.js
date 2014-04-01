@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require tinymce
 
 function validate()
 {
@@ -44,14 +45,11 @@ function validate()
    document.getElementById("error2").innerHTML="*Password is mandatory"
    return false;  
  }  
- else if(user!="sadmin" || pass!="sadmin") 
- {
-  //alert("SSSSSSSSSSSSSSSSSS")
-  document.getElementById("error3").innerHTML="*Invalid UserName or Password*"
-  return false;  
-}
+ 
 else
-  {return true}
+  {
+    return true;
+  }
 }  
 
 

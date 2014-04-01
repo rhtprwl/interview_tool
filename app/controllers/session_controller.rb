@@ -7,7 +7,7 @@ class SessionController < ApplicationController
 	end
 
 	def create
-	  user = User.find_by(name: params[:session][:name].downcase)
+	  user = User.find_by(name: params[:session][:name])
 	  if user.nil?
       render 'new'     
     else
