@@ -58,7 +58,7 @@ class CategoryController < ApplicationController
                 @category.save
            else
            end
-           redirect_to category_path
+           redirect_to admin_categories_path
 
        else
          #render 'edit'

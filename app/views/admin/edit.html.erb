@@ -16,7 +16,11 @@
 
       <div class="form-group">
         <%= f.label :category %>
-        <%= f.collection_select(:category, Category.where(:parent=>'root'), :id, :category_name ,:selected => @user.category) %>
+        <%if @user.role=='admin'%>
+        <%= f.select(:category, options_for_select(['',''])) %>
+        <% else %>
+        <%= f.collection_select(:category, Category.where(:parent=>'root'), :id, :category_name) %>
+        <% end %>
       </div>
 
       <div class="form-group">

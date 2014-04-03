@@ -24,7 +24,8 @@
     
     <div class="form-group" >
       <%=f.label :Add_Question %>
-      <%=f.text_area :question %>
+      <%= f.text_area :question, class: "tinymce",:id => "quest"%>
+      <%#=f.text_area :question %>
     </div>
     <div id="error"></div>
 
@@ -57,4 +58,5 @@
      </div>
      <% end %>
    </div>
+   <%= tinymce %>
 

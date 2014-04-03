@@ -207,7 +207,15 @@ $("#TextBoxDivs" + counter).remove();
 
 
 $(document).ready( function () {
-  $('#users').dataTable();
-  $('#category').dataTable();
-   $('#question').dataTable();
+
+  if (location.pathname == '/admin/users'){
+    var oTable = $('#users').dataTable();
+    //alert(oTable.fnGetData().length);
+}
+  if (location.pathname == '/admin/categories'){
+    $('#category').dataTable();
+}
+  //if (location.pathname == '/question/[^0-9]/g'){
+    $('#question').dataTable();
+//}
 });
